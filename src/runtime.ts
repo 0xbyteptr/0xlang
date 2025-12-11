@@ -43,17 +43,21 @@ export class Runtime {
       this.evalExpr(s.expr, target);
       return false; // no return
     } else if (s.kind === "ReturnStmt") {
+      this.returnValue = s.expr ? this.evalExpr(s.expr, target) : { kind: "null" };
+      this.hasReturned = true;
       return true; // signal return
     } else if (s.kind === "IfStmt") {
       const cond = this.evalExpr(s.condition, target);
       const isTruthy = (cond.kind === "int" && cond.value !== 0) || (cond.kind === "bool" && cond.value);
       if (isTruthy) {
         for (const stmt of s.thenBody) {
-          if (this.execStmt(stmt, target)) return true;
+          this.execStmt(stmt, target);
+          if (this.hasReturned) return true;
         }
       } else if (s.elseBody) {
         for (const stmt of s.elseBody) {
-          if (this.execStmt(stmt, target)) return true;
+          this.execStmt(stmt, target);
+          if (this.hasReturned) return true;
         }
       }
       return false;
