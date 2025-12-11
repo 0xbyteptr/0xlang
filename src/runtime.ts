@@ -126,15 +126,19 @@ export class Runtime {
             }
             
             // Execute method body
-            let result: Value = { kind: "null" };
+            const savedReturned = this.hasReturned;
+            const savedReturnValue = this.returnValue;
+            this.hasReturned = false;
+            this.returnValue = null;
+            
             for (const stmt of method.body) {
-              if (stmt.kind === "ReturnStmt") {
-                result = stmt.expr ? this.evalExpr(stmt.expr, localEnv) : { kind: "null" };
-                break;
-              } else {
-                this.execStmt(stmt, localEnv);
-              }
+              this.execStmt(stmt, localEnv);
+              if (this.hasReturned) break;
             }
+            
+            const result = (this.returnValue ?? { kind: "null" }) as Value;
+            this.hasReturned = savedReturned;
+            this.returnValue = savedReturnValue;
             return result;
           } else if (obj.kind === "object") {
             // Instance method call on an object
@@ -151,15 +155,19 @@ export class Runtime {
             }
             
             // Execute method body
-            let result: Value = { kind: "null" };
+            const savedReturned = this.hasReturned;
+            const savedReturnValue = this.returnValue;
+            this.hasReturned = false;
+            this.returnValue = null;
+            
             for (const stmt of method.body) {
-              if (stmt.kind === "ReturnStmt") {
-                result = stmt.expr ? this.evalExpr(stmt.expr, localEnv) : { kind: "null" };
-                break;
-              } else {
-                this.execStmt(stmt, localEnv);
-              }
+              this.execStmt(stmt, localEnv);
+              if (this.hasReturned) break;
             }
+            
+            const result = (this.returnValue ?? { kind: "null" }) as Value;
+            this.hasReturned = savedReturned;
+            this.returnValue = savedReturnValue;
             return result;
           }
           throw new Error("Call on non-object/non-class");
