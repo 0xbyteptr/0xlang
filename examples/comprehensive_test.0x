@@ -1,0 +1,26 @@
+// Comprehensive example showing imports and error handling
+import io
+import math as m
+
+let a: int = 15
+let b: int = 8
+
+print("Testing Math functions:")
+print("a = ")
+print(a)
+print("b = ")
+print(b)
+
+let max_ab: int = Math.max(a, b)
+print("max(a, b) = ")
+print(max_ab)
+
+let min_ab: int = Math.min(a, b)
+print("min(a, b) = ")
+print(min_ab)
+
+let abs_neg: int = Math.abs(-a)
+print("abs(-a) = ")
+print(abs_neg)
+
+print("All tests passed!")

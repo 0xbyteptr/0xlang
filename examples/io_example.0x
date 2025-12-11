@@ -1,0 +1,18 @@
+// Example showing import and Math usage
+import io
+
+let x: int = 5
+let y: int = 10
+
+let max_val: int = Math.max(x, y)
+let min_val: int = Math.min(x, y)
+let abs_val: int = Math.abs(-42)
+
+print("Maximum of 5 and 10: ")
+print(max_val)
+
+print("Minimum of 5 and 10: ")
+print(min_val)
+
+print("Absolute value of -42: ")
+print(abs_val)

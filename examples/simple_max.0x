@@ -1,0 +1,10 @@
+// Simple test for Math.max
+import io
+
+let x: int = 15
+let y: int = 8
+
+let result: int = Math.max(x, y)
+
+print("Result: ")
+print(result)

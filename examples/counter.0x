@@ -1,0 +1,35 @@
+// Counter using a class
+class Counter {
+  value: int
+  
+  constructor(start: int) {
+    this.value = start
+  }
+  
+  increment(): bool {
+    this.value = this.value + 1
+    return true
+  }
+  
+  decrement(): bool {
+    this.value = this.value - 1
+    return true
+  }
+  
+  reset(): bool {
+    this.value = 0
+    return true
+  }
+  
+  get_value(): int {
+    return this.value
+  }
+}
+
+let counter: Counter = new Counter(0)
+counter.increment()
+counter.increment()
+counter.increment()
+
+let current: int = counter.get_value()
+print(current)

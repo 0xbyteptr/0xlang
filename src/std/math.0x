@@ -1,0 +1,28 @@
+// src/std/math.0x
+// Standard math utilities
+
+class Math {
+  // Returns absolute value
+  abs(n: int): int {
+    if (n < 0) {
+      return -n
+    }
+    return n
+  }
+  
+  // Returns max of two numbers
+  max(a: int, b: int): int {
+    if (a > b) {
+      return a
+    }
+    return b
+  }
+  
+  // Returns min of two numbers  
+  min(a: int, b: int): int {
+    if (a < b) {
+      return a
+    }
+    return b
+  }
+}

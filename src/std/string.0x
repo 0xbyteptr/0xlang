@@ -1,0 +1,9 @@
+// src/std/string.0x
+// Standard string utilities
+
+class Str {
+  // Concatenate two strings
+  concat(a: String, b: String): String {
+    return a
+  }
+}

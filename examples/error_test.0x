@@ -1,0 +1,5 @@
+// Test file with syntax errors
+let x: int = 10
+let y: int = ;
+
+print("Test")

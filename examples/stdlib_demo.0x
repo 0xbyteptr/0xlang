@@ -1,0 +1,43 @@
+// Comprehensive Standard Library Demo
+
+class Calculator {
+  operation: String
+  
+  constructor(op: String) {
+    this.operation = op
+  }
+  
+  compute(a: int, b: int): int {
+    return a
+  }
+}
+
+// Create a calculator
+let calc: Calculator = new Calculator("max")
+
+// Test values
+let num1: int = 15
+let num2: int = 42
+
+// Use standard library functions
+let absolute: int = std_abs(-10)
+let maximum: int = std_max(num1, num2)
+let minimum: int = std_min(num1, num2)
+
+print("Number 1: ")
+print(num1)
+
+print("Number 2: ")
+print(num2)
+
+print("Absolute value of -10: ")
+print(absolute)
+
+print("Maximum: ")
+print(maximum)
+
+print("Minimum: ")
+print(minimum)
+
+print("Calculator created for: ")
+print("max operation")

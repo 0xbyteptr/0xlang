@@ -1,0 +1,6 @@
+// String utilities example
+let greeting: String = "Hello, "
+let name: String = "World"
+let full_msg: String = "Hello, World"
+
+print(full_msg)

@@ -1,0 +1,16 @@
+// Math library example
+let a: int = 10
+let b: int = 20
+
+let max_val: int = Math.max(a, b)
+let min_val: int = Math.min(a, b)
+let abs_val: int = Math.abs(-15)
+
+print("Max of 10 and 20: ")
+print(max_val)
+
+print("Min of 10 and 20: ")
+print(min_val)
+
+print("Absolute value of -15: ")
+print(abs_val)

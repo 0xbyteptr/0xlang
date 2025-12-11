@@ -1,0 +1,10 @@
+// Test import statement
+import std
+
+let a: int = 10
+let b: int = 20
+
+let result: int = Math.max(a, b)
+
+print("Max value: ")
+print(result)

@@ -1,0 +1,19 @@
+// src/std/io.0x
+// Standard I/O library
+
+class IO {
+  // Print an integer
+  print(n: int): int {
+    return n
+  }
+  
+  // Print a string
+  printStr(s: string): string {
+    return s
+  }
+  
+  // Print with newline
+  printNL(): bool {
+    return true
+  }
+}
