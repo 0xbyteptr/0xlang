@@ -12,6 +12,8 @@ type Value =
 export class Runtime {
   classes: Map<string, AST.ClassDecl>;
   globals = new Map<string, Value>();
+  returnValue: Value | null = null;
+  hasReturned: boolean = false;
 
   constructor(program: AST.Program) {
     this.classes = new Map(program.body.filter(s => s.kind==="ClassDecl").map(s => [s.name, s] as [string, AST.ClassDecl]));
@@ -25,6 +27,7 @@ export class Runtime {
     // execute top-level var decls and exprstmts
     for (const s of program.body) {
       this.execStmt(s);
+      if (this.hasReturned) break;
     }
   }
 
